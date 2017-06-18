@@ -1,0 +1,27 @@
+<div class="col-md-11 edit-form" style="padding: 10px 20px">
+  <div class="panel panel-default devise-bs">
+    <div class="panel-heading" style="background:#353d47; color: white;">
+      <h4>Post</h4>
+    </div>
+    <div class="panel-body">
+      <%= form_for(@post , url: post_path(@post), remote: true) do |f| %>
+        <div class="form-group">
+        <label>Name</label>
+          <%= f.text_field :author, placeholder: "Author name",class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label>Post</label>
+          <%= f.text_area :content, placeholder: "Your post", rows: 5,class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <label>Tags</label>
+          <%= f.text_field :all_tags, placeholder: "Tags separated with comma",class: "form-control" %>
+        </div>
+        <div class="form-group">
+          <%= f.submit "Update Post", class: "btn btn-success btn-sm"%>
+          <%= link_to "cancel", cancel_posts_path(id: @post), class: 'btn btn-sm btn-default',remote: true %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

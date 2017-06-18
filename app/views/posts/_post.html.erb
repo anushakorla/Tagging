@@ -1,0 +1,23 @@
+<%= div_for post do %>
+  <div>
+    <div>
+      <b>Author Name:</b>
+      <%= h(post.author) %>
+    </div>
+    <sup>From <%= time_ago_in_words(post.created_at)%></sup><br />
+    <div>
+      <b>Post:</b>
+      <%= h(post.content) %>
+    </div>
+    <div>
+      <b>Tags:</b>
+      <%=raw tag_links(post.all_tags)%>
+    </div>
+    <br>
+    <div>
+      <%= link_to 'Delete', post_path(post), method: :delete, remote: true, data: { confirm: "Are you sure?" }, class: "btn btn-danger btn-xs" %>
+      <%= link_to 'Edit', edit_post_path(post),remote: true, class: "btn btn-warning btn-xs" %>
+    </div>
+    <hr/>
+  </div>
+<% end %>
